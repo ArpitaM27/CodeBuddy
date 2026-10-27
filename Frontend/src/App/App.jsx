@@ -1,9 +1,29 @@
 
 import './App.css';
 import { Editor } from '@monaco-editor/react';
+import { MonacoBinding } from "y-monaco"
+import { useRef, useMemo, useState, useEffect } from "react"
+import * as Y from "yjs"
+import { SocketIOProvider } from "y-socket.io"
 
 function App() {
+  const editorRef = useRef(null)
+  const ydoc = useMemo(() => new Y.Doc(), [])
+  const yText = useMemo(() => ydoc.getText("monaco"), [ ydoc ])
   const handleMount = (editor, monaco) => {
+    editorRef.current=editor
+    const monacoBinding=new MonacoBinding(
+      yText,
+      editorRef.current.getModel(),
+      new Set([ editorRef.current ]),
+      provider.awareness
+    )
+    const provider = new SocketIOProvider("http://localhost:3000", "monaco", ydoc, {
+        autoConnect: true,
+      }
+    )
+
+    
     monaco.editor.defineTheme('mocha-cream', {
       base: 'vs',
       inherit: true,
@@ -43,6 +63,8 @@ colors: {
     monaco.editor.setTheme('mocha-cream');
     console.log('Mocha Studio theme applied!');
   };
+  
+
 
   return (
     <main className="mocha-studio flex min-h-screen gap-4 p-6">
