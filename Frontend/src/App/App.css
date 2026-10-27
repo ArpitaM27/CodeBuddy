@@ -1,2 +1,56 @@
 
 @import "tailwindcss";
+
+
+
+
+body {
+  margin: 0;
+  background: #B7A08A;
+}
+
+.mocha-studio {
+  min-height: 100vh;
+  background: linear-gradient(
+    135deg,
+    #B7A08A 0%,
+    #C7B19A 50%,
+    #B7A08A 100%
+  );
+  color: #493830;
+}
+
+.editor-panel {
+  background: #E8D8C3;
+  border: 1px solid #A88970;
+  box-shadow: 0 8px 24px rgba(59, 43, 38, 0.12);
+}
+
+.users-panel {
+  background: linear-gradient(
+    160deg,
+    #493830,
+    #3B2B26 55%,
+    #30231F
+  );
+  border: 1px solid #62483B;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+
+
+.users-panel h2 {
+  color: #E8C5AE;
+  font-size: 15px;
+}
+
+
+
+.editor-panel > section,
+.editor-panel .monaco-editor,
+.editor-panel .monaco-editor .overflow-guard {
+  border-radius: 8px;
+}
