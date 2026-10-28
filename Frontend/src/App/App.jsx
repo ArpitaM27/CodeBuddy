@@ -93,7 +93,6 @@ const updateUsers = () => {
     socketProvider.awareness.getStates().values()
   );
 
-  // Show each username only once
   const uniqueUsers = new Map();
 
   states.forEach((state) => {
