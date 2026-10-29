@@ -77,8 +77,6 @@ git clone <https://github.com/ArpitaM27/CodeBuddy.git>
 cd CodeBuddy
 ```
 
-Replace `<YOUR_REPOSITORY_URL>` with your actual Git repository URL.
-
 ### 2. Run locally without Docker
 
 Install and start the frontend and backend separately.
@@ -100,8 +98,6 @@ cd Frontend
 npm install
 npm run dev
 ```
-
-Ensure the frontend's Socket.IO provider points to the backend's reachable address and port.
 
 ### 3. Build with Docker
 
